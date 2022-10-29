@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         #'NAME': BASE_DIR / 'db.mysql',
         'NAME': 'hng9',
-        'HOST': ['127.0.0.1', 'anacia.mysql.pythonanywhere-services.com'],
+        'HOST': '127.0.0.1', 'anacia.mysql.pythonanywhere-services.com'
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'aiCanA'
