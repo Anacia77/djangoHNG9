@@ -8,7 +8,7 @@ def end(request):
 
 
 def task1(request):
-    slackUsername = 'anacia'
+    slackUsername = 'Stephen Doamekpor'
     age= int(25)
     backend = True
     bio = 'Web developer, Python developer'
