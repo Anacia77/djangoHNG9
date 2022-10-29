@@ -10,9 +10,8 @@ def end(request):
 def task1(request):
     slackUsername = 'Stephen Doamekpor'
     age= int(25)
-    backend = True
     bio = 'Web developer, Python developer'
-    data_set = {'slackUsername': slackUsername, 'backend': backend, 'age': age, 'bio': bio}
+    data_set = {'slackUsername': slackUsername, 'backend': True, 'age': age, 'bio': bio}
     json_dump = json.dumps(data_set)
     #return render(request, 'endpoint/task1.html', {'data_set': json_dump})
     return HttpResponse(json_dump)
