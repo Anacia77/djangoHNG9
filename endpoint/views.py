@@ -3,6 +3,9 @@ from django.shortcuts import render
 import json
 
 # Create your views here.
+def end(request):
+    return render(request, 'endpoint/end.html')
+
 
 def task1(request):
     slackUsername = 'anacia'
