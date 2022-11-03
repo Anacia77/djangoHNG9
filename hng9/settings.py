@@ -77,16 +77,14 @@ WSGI_APPLICATION = 'hng9.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        #'NAME': BASE_DIR / 'db.mysql',
-        'NAME': 'hng9',
-        'HOST': '127.0.0.1', 'anacia.mysql.pythonanywhere-services.com'
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': 'aiCanA'
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase', # This is where you put the name of the db file. 
+                 # If one doesn't exist, it will be created at migration time.
     }
 }
+
+
+
 
 
 # Password validation
