@@ -2,6 +2,14 @@ from django.shortcuts import render, redirect
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
+from .decorators import unauthenticated_user
+#using email
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
+
 
 
 # Create your views here.
@@ -9,7 +17,12 @@ from django.contrib.auth import authenticate, login, logout
 def welcomePage(request):
     return render(request, 'site/home.html')
 
+
+
+@login_required(login_url= 'users:login')
 def userPage(request):
+    if not request.user.is_authenticated:  #if the user is not authenticated
+        return redirect('users:login')
     return render(request, 'site/account.html')
 
 def registerPage(request):
@@ -24,6 +37,7 @@ def registerPage(request):
     context = {'form': form}
     return render(request, 'site/register.html', context)
 
+@unauthenticated_user
 def loginPage(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -37,6 +51,7 @@ def loginPage(request):
     
     return render(request, 'site/login.html')
 
+
 def logoutUser(request):
     logout(request)
-    return redirect('users:welcomePage')
+    return redirect('users:login')
