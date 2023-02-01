@@ -10,8 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'users.apps.UsersConfig',
+    'weather.apps.WeatherConfig',
+    'weatherII.apps.WeatherIIConfig',
+    'user.apps.UserConfig'
+    
     
 ]
 
@@ -57,7 +60,7 @@ ROOT_URLCONF = 'hng9.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR, 'templates', 'user/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,14 +84,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         #'NAME': BASE_DIR / 'db.mysql',
-        'NAME': 'hng9',
-        'HOST': '127.0.0.1',
+        'NAME': 'project',
+        'HOST': '127.0.0.1', 'anacia.mysql.pythonanywhere-services.com'
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'aiCanA'
 
     }
 }
+
 
 
 
@@ -136,11 +140,23 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# SMTP Configuration
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'pythonprojects360@gmail.com'
-EMAIL_HOST_PASSWORD = 'zpzowdbobqwztkaf'
+
+STATIC_URL = "/static/"
+#STATIC_ROOT= os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+#SMTP Configuration
+
+EMAIL_HOST="smtp.gmail.com"
+EMAIl_PORT=587
+EMAIL_HOST_USER="edemdoamekpor7@gmail.com"
+EMAIL_HOST_PASSWORD="wwwgasmtywdmefik"
+EMAIL_USE_TLS=True
+DEFAULT_FROM_EMAIL="User Login System edemdoamekpor7@gmail.com"
+

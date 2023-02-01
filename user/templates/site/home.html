@@ -1,0 +1,12 @@
+{% extends "site/layout.html" %}
+
+{% block body %}
+<h1>Hey there! wanna join us ?</h1>
+<h1>We would love have you !</h1>
+
+<h3>
+   <p>Don't have an account yet? <a href="{% url 'user:register' %}">Sign Up</a></p>
+    <p>Already registered ? <a href="{% url 'user:login' %}">Log In</a></p>
+</h3>
+{% endblock %}
+

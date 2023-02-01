@@ -1,0 +1,35 @@
+{%  extends "site/layout.html" %}
+
+{% block body %}
+
+<h3>Update User details</h3>
+
+<p>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <div>
+            <input type="submit" name="update">
+          </div>
+          <div class="form-group">
+            {% if messages %}
+              {% for message in messages %}
+              {% if message.tags == 'error' %}
+              <div class="alert alert-danger" style="margin-top:10px">{{ message }}</div>
+              {% endif %}
+              {% if message.tags == 'success' %}
+              <div class="alert alert-success" style="margin-top:10px">{{ message }}</div>
+              {% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+
+    </form>
+
+
+<a href="{% url 'user:account' %}">Back To UserPage</a>
+{% endblock %}
+
+
+

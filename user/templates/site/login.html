@@ -1,0 +1,23 @@
+{% extends "site/layout.html" %}
+
+
+{% block body %}
+<h1>Log into your account</h1>
+<div class="container glass">
+<form action="{% url 'user:login' %}" method="post">
+    
+    {% csrf_token %}
+    <p><input type="text" name="username" placeholder="Username"></p>
+    <p><input type="password" name="password" placeholder="Password"></p>
+    <input type="submit">
+
+</form>
+</div>
+Return to home page.<a href="{% url 'user:welcomePage' %}">Home</a>
+{% for message in messages %}
+ <p id="masseges">
+    {{message}}
+ </p>
+Create an Account.<a href="{% url 'user:register' %}">Sign Up</a>
+{% endfor %}
+{% endblock %}
