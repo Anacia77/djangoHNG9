@@ -117,3 +117,27 @@ def check_username_exist(request):
         return HttpResponse(False)
 
 
+def user_profile(request):
+    user=User.objects.get(id=request.user.id)
+    return render(request,"site/changePass.html",{"user":user})
+
+def user_profile_save(request):
+    if request.method!="POST":
+        return HttpResponseRedirect(reverse("user:user_profile"))
+    else:
+        #first_name=request.POST.get("first_name")
+        #last_name=request.POST.get("last_name")
+        password=request.POST.get("password")
+        try:
+            userdetail=User.objects.get(id=request.user.id)
+            #user.first_name=first_name
+            #user.last_name=last_name
+            if password!=None and password!="":
+                userdetail.set_password(password)
+            userdetail.save()
+            messages.success(request, "Successfully Updated Profile")
+            return HttpResponseRedirect(reverse("user:user_profile"))
+        except:
+            messages.error(request, "Failed to Update Profile")
+            return HttpResponseRedirect(reverse("user:user_profile"))
+

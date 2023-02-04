@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from hng9 import settings
 
-from django.conf import settings
+#from django.conf import settings
 
 urlpatterns = [
 
@@ -27,7 +27,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('weather/', include('weather.urls')),
     path('weatherII/', include('weatherII.urls')),
-    path('user/', include('user.urls')),
+    path('', include('user.urls')),
    
 ]
 

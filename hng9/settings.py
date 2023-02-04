@@ -155,8 +155,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 EMAIL_HOST="smtp.gmail.com"
 EMAIl_PORT=587
-EMAIL_HOST_USER="edemdoamekpor7@gmail.com"
-EMAIL_HOST_PASSWORD="wwwgasmtywdmefik"
+EMAIL_HOST_USER="projectpython360@gmail.com"
+EMAIL_HOST_PASSWORD="bmzvokmozgpeixte"
 EMAIL_USE_TLS=True
-DEFAULT_FROM_EMAIL="User Login System edemdoamekpor7@gmail.com"
+DEFAULT_FROM_EMAIL="User Login System projectpython360@gmail.com"
 
