@@ -2,6 +2,8 @@ from django.urls import path
 
 from . import views
 
+#from .views import GeneratePDF
+from user import reportPDF, GeneratePDF
 
 app_name = 'user'
 urlpatterns = [
@@ -15,5 +17,8 @@ urlpatterns = [
     path('check_username_exist',views.check_username_exist,name="check_username_exist"),
     path('user_profile', views.user_profile, name="user_profile"),
     path('user_profile_save', views.user_profile_save, name="user_profile_save"),
+    
+    path('pdf', GeneratePDF.GeneratePDF.as_view(), name="pdf"),
+    path('report', reportPDF.render_to_pdf, name="report"),
 
 ]

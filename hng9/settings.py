@@ -160,3 +160,5 @@ EMAIL_HOST_PASSWORD="bmzvokmozgpeixte"
 EMAIL_USE_TLS=True
 DEFAULT_FROM_EMAIL="User Login System projectpython360@gmail.com"
 
+
+CSRF_TRUSTED_ORIGINS = ['https://yourdomain.com']

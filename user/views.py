@@ -18,6 +18,12 @@ from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
 
 
+from django.views.generic import View
+from django.template.loader import get_template
+from .reportPDF import render_to_pdf
+
+
+
 
 
 
@@ -116,10 +122,8 @@ def check_username_exist(request):
     else:
         return HttpResponse(False)
 
-
 def user_profile(request):
-    user=User.objects.get(id=request.user.id)
-    return render(request,"site/changePass.html",{"user":user})
+    return render(request,"site/changePass.html")
 
 def user_profile_save(request):
     if request.method!="POST":
