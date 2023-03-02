@@ -167,4 +167,4 @@ EMAIL_USE_TLS=True
 DEFAULT_FROM_EMAIL="User Login System projectpython360@gmail.com"
 
 
-CSRF_TRUSTED_ORIGINS = ['https://djangohng9-production.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://djangohng9-production.up.railway.app']
